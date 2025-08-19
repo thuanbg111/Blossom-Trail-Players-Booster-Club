@@ -1,0 +1,111 @@
+
+:root{
+  --bg:#0b1220;
+  --card:#111827;
+  --muted:#94a3b8;
+  --text:#e5e7eb;
+  --accent:#60a5fa;
+  --accent-2:#34d399;
+  --border:#1f2937;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif;color:var(--text);background:var(--bg);}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+header{position:sticky;top:0;background:rgba(11,18,32,.9);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img {
+  width: 140px;   /* tăng chiều rộng lên 120px */
+  height: auto;  /* chiều cao tự động theo tỉ lệ */
+}
+
+/* Mobile-first nav */
+#nav-open{display:none}
+.mobile-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--border);border-radius:10px;background:#0e172a}
+.mobile-toggle svg{width:22px;height:22px}
+.menu{display:none;flex-direction:column;gap:10px;position:absolute;left:0;right:0;top:62px;background:#0b1220;border-bottom:1px solid var(--border);padding:12px 20px}
+.menu a{padding:10px 12px;border-radius:10px}
+.menu a.active,.menu a:hover{background:#0e172a}
+#nav-open:checked ~ nav .menu{display:flex}
+/* Desktop */
+@media(min-width:900px){
+  .mobile-toggle{display:none}
+  .menu{display:flex !important;position:static;flex-direction:row;gap:16px;border:0;padding:0;background:transparent}
+}
+.hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:30px 0}
+.hero h1{font-size:32px;line-height:1.2;margin:0 0 10px}
+.hero p{color:var(--muted);font-size:16px}
+@media(min-width:900px){ .hero{grid-template-columns:1fr;padding:44px 0} .hero h1{font-size:42px} .hero p{font-size:18px} }
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr);gap:20px}}
+.btn{display:inline-block;padding:12px 16px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600}
+.btn.secondary{background:var(--accent-2);}
+h2{font-size:24px;margin:22px 0 10px}
+@media(min-width:900px){h2{font-size:28px}}
+h3{font-size:18px;margin:16px 0 8px}
+footer{margin-top:36px;border-top:1px solid var(--border);background:#0b1220a6}
+footer .cols{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){footer .cols{grid-template-columns:1.8fr 1fr 1fr}}
+small,.muted{color:var(--muted)}
+.kicker{letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2);font-size:12px}
+.list{margin:0;padding-left:18px}
+.img{width:100%;height:auto;border-radius:14px;border:1px solid var(--border);background:#0e172a}
+.section{padding:22px 0}
+.banner{display:flex;align-items:center;gap:12px;padding:12px;border:1px dashed #334155;border-radius:12px;background:#0e172a;flex-wrap:wrap}
+form input,form textarea{width:100%;background:#0e172a;border:1px solid var(--border);border-radius:12px;color:var(--text);padding:12px;margin:8px 0}
+form button{border:0}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border-bottom:1px solid var(--border);padding:12px;text-align:left}
+.badge{display:inline-block;padding:6px 8px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--muted)}
+
+/* Large hero image below heading */
+.hero-image{margin-top:16px}
+.hero-image .card{padding:0}
+.hero-image img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--border)}
+@media(min-width:900px){
+  .hero-image{margin-top:20px}
+}
+
+
+/* Program thumbnails */
+.program-card .thumb-wrap{aspect-ratio:16/9;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:#0e172a;margin-bottom:12px}
+.program-card .program-thumb{width:100%;height:100%;object-fit:cover;display:block}
+
+
+/* About page gallery (mobile-first) */
+.about-gallery .gallery-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:700px){.about-gallery .gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.about-gallery .gallery-grid{grid-template-columns:repeat(3,1fr)}}
+.about-figure{padding:0}
+.about-figure .media{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--border);border-top-left-radius:16px;border-top-right-radius:16px}
+.about-figure img{width:100%;height:100%;object-fit:cover;display:block}
+.about-figure .caption{padding:12px 14px;color:var(--muted);font-size:14px}
+
+
+/* Contact page centered 2-column layout */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:16px;justify-content:center}
+@media(min-width:900px){
+  .contact-grid{
+    grid-template-columns: minmax(320px, 520px) minmax(320px, 520px);
+    justify-content:center; align-items:start;
+  }
+}
+/* Responsive Google Map embed */
+.map-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#0e172a}
+.map-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+
+/* Compact footer brand */
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-brand img{width:56px;height:auto;border-radius:10px;border:1px solid var(--border);background:#0e172a}
+.footer-brand .brand-text strong{font-size:16px}
+.footer-brand .brand-text .muted{font-size:13px}
+@media(min-width:900px){
+  footer .cols{grid-template-columns:1.5fr 1fr 1fr}
+}
+
+.foot-desc{margin-top:6px;color:var(--muted);font-size:13px;line-height:1.45;max-width:60ch}
